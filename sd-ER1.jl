@@ -131,7 +131,7 @@ function superdiffusion_analysis(model1::String, model2::String, N::Int64, ks1::
                                    if model1 == "ER"
                                           G1 = my_erdos_renyi(N, k1, sorted, false)
                                    elseif model1 == "RR"
-                                          G1 = my_random_regular(N, k1)
+                                          G1 = random_regular_graph(N, k1)
                                    elseif model1 == "BA"
                                           G1 = my_barabasi_albert(N, k1, sorted, false)
                                    elseif model1 == "RSR"
@@ -142,7 +142,7 @@ function superdiffusion_analysis(model1::String, model2::String, N::Int64, ks1::
                                    if model2 == "ER"
                                           G2 = my_erdos_renyi(N, k2, sorted, reversed)
                                    elseif model2 == "RR"
-                                          G2 = my_random_regular(N, k2)
+                                          G2 = random_regular_graph(N, k2)
                                    elseif model2 == "BA"
                                           G2 = my_barabasi_albert(N, k2, sorted, reversed)
                                    elseif model2 == "RSR"
@@ -243,8 +243,8 @@ ks = collect(5.0:2.0:200.0)
 
 # -------- Parameters --------
 
-model1 = "RR"
-model2 = "RR"
+model1 = "ER"
+model2 = "ER"
 
 sorted = false
 reversed = false
